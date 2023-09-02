@@ -103,3 +103,71 @@ The "CREATE TABLE" statement is a command used in database management systems (D
    - Column Name: The name of the column.
    - Data Type: The data type that defines the kind of data the column can store (e.g., INTEGER, TEXT, DATE).
    - Additional Constraints (Optional): You can include constraints like primary key, unique, not null, default values, and more for each column.
+
+## Altering tables
+
+Altering tables in a relational database involves making changes to the structure or characteristics of an existing table. This can include adding new columns, modifying existing columns, or even deleting columns. Here are some common operations you can perform to alter tables:
+
+1. Adding a New Column:
+
+   You can add a new column to an existing table using the ALTER TABLE statement.
+   For example, to add a new column named "email" with the data type TEXT to a table called "customers," you can use the following SQL command:
+
+   ```sql
+   ALTER TABLE customers
+   ADD COLUMN email TEXT;
+   ```
+
+1. Modifying an Existing Column:
+
+   You can modify the data type or constraints of an existing column.
+   For example, to change the data type of an "age" column from INTEGER to SMALLINT in a table called "employees," you can use:
+
+   ```sql
+   ALTER TABLE employees
+   ALTER COLUMN age SET DATA TYPE SMALLINT;
+   ```
+
+1. Renaming a Column:
+
+   You can rename an existing column using the ALTER TABLE statement.
+   For instance, to rename a column "phone_number" to "contact_number" in a table called "contacts," you can do:
+
+   ```sql
+   ALTER TABLE contacts
+   RENAME COLUMN phone_number TO contact_number;
+   ```
+
+1. Dropping a Column:
+
+   You can remove an existing column from a table using the ALTER TABLE statement.
+   Be cautious when dropping columns, as it permanently removes data.
+   For example, to remove a column "credit_score" from a table named "applicants," you can use:
+
+   ```sql
+   ALTER TABLE applicants
+   DROP COLUMN credit_score;
+   ```
+
+1. Adding Constraints:
+
+   You can add constraints like NOT NULL or UNIQUE to existing columns.
+   For instance, to make sure that the "email" column in the "customers" table cannot contain NULL values and must be unique, you can use:
+
+   ```sql
+   ALTER TABLE customers
+   ALTER COLUMN email SET NOT NULL;
+
+   ALTER TABLE customers
+   ADD CONSTRAINT unique_email UNIQUE (email);
+   ```
+
+1. Dropping Constraints:
+
+   Conversely, you can remove constraints from columns.
+   For example, to remove the unique constraint from the "email" column in the "customers" table, you can do:
+
+   ```sql
+   ALTER TABLE customers
+   DROP CONSTRAINT unique_email;
+   ```
