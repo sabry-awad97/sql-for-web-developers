@@ -120,3 +120,63 @@ Relational databases are a type of database management system (DBMS) that store 
 1. `Amazon RDS`: Amazon RDS (Relational Database Service) is a cloud-based service that allows you to set up, operate, and scale a relational database in the cloud. It supports several database engines, including MySQL, PostgreSQL, Microsoft SQL Server, and Oracle Database.
 
 1. `Google Cloud SQL`: Google Cloud SQL is a fully managed relational database service on Google Cloud Platform. It supports MySQL, PostgreSQL, and SQL Server as database engines.
+
+## NoSQL vs SQL
+
+In the world of database management systems, there are two primary categories: SQL (Structured Query Language) databases and NoSQL databases. These two categories differ in their data models, storage mechanisms, and use cases. Let's explore the differences between them.
+
+### SQL Databases
+
+**1\. Data Structure:**
+
+- SQL databases are relational, meaning they use a structured schema with tables, rows, and columns.
+- Data in SQL databases follows a predefined structure, and changes to the schema can be complex.
+
+**2\. Query Language:**
+
+- SQL databases use SQL as the query language, which is powerful for complex queries and joins.
+- SQL allows for precise control over data retrieval and manipulation.
+
+**3\. ACID Transactions:**
+
+- SQL databases typically support ACID (Atomicity, Consistency, Isolation, Durability) transactions, ensuring data integrity.
+- ACID transactions are essential for applications where data consistency is critical, such as banking systems.
+
+**4\. Scaling:**
+
+- SQL databases can scale vertically (adding more resources to a single server) or horizontally (using sharding), but horizontal scaling can be complex.
+
+**5\. Use Cases:**
+
+- SQL databases are well-suited for applications with structured data and complex relationships, such as e-commerce platforms, financial systems, and traditional business applications.
+
+### NoSQL Databases
+
+**1\. Data Structure:**
+
+- NoSQL databases are non-relational and use various data models, including document, key-value, column-family, and graph.
+- Data in NoSQL databases can be more flexible, with different records having different fields.
+
+**2\. Query Language:**
+
+- NoSQL databases often use query languages specific to their data model, which may be less expressive than SQL.
+- Queries are optimized for specific use cases but may not support complex joins.
+
+**3\. ACID Transactions:**
+
+- NoSQL databases may provide varying levels of ACID compliance, with some favoring eventual consistency over strict consistency.
+
+**4\. Scaling:**
+
+- NoSQL databases are designed for horizontal scalability, making it easier to handle large amounts of data and high traffic loads.
+
+**5\. Use Cases:**
+
+- NoSQL databases excel in scenarios with rapidly changing data, unstructured or semi-structured data, and distributed systems. They are commonly used in real-time analytics, content management systems, and social media platforms.
+
+### When to Choose SQL or NoSQL
+
+- **Choose SQL** when you have a well-defined schema, require ACID transactions, and need complex querying capabilities.
+- **Choose NoSQL** when your data is unstructured, rapidly evolving, or distributed across multiple locations. NoSQL databases are well-suited for applications that prioritize scalability and can tolerate eventual consistency.
+
+Remember that the choice between SQL and NoSQL depends on the specific requirements of your application. In some cases, hybrid solutions combine both types of databases to leverage the strengths of each for different parts of an application.
