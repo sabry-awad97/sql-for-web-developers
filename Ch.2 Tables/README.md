@@ -89,3 +89,17 @@ CREATE TABLE
         salary INTEGER
     );
 ```
+
+### "CREATE TABLE" STATEMENT
+
+The "CREATE TABLE" statement is a command used in database management systems (DBMS) to define and create a new table within a relational database. This statement specifies the table's name, the structure of its columns, and certain characteristics of those columns. Here's an explanation of its components:
+
+1. `CREATE TABLE`: This part of the statement is the command itself, indicating that you want to create a new table.
+
+1. `Table Name`: Following "CREATE TABLE," you provide a name for the new table. This name should be unique within the database and is used to reference the table in subsequent SQL operations.
+
+1. `Column Definitions`: Within parentheses, you define the structure of the table by specifying its columns. Each column definition includes:
+
+   - Column Name: The name of the column.
+   - Data Type: The data type that defines the kind of data the column can store (e.g., INTEGER, TEXT, DATE).
+   - Additional Constraints (Optional): You can include constraints like primary key, unique, not null, default values, and more for each column.
