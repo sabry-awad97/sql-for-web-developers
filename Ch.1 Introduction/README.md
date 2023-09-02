@@ -96,3 +96,27 @@ LIMIT 10;
 ```
 
 This query retrieves the first 10 rows from the `products` table.
+
+## Which Databases Use SQL?
+
+Relational databases are a type of database management system (DBMS) that store and manage data in a structured manner, with tables that relate to each other through keys. SQL is commonly used in various relational database systems. Here are some of the popular databases that use SQL:
+
+1. `MySQL`: MySQL is one of the most widely used open-source relational database management systems. It's known for its speed, reliability, and ease of use. Many web applications, including WordPress and Joomla, use MySQL as their database backend.
+
+1. `PostgreSQL`: PostgreSQL is another powerful open-source relational database system known for its extensibility and support for advanced data types. It is often used for complex and large-scale applications.
+
+1. `Oracle Database`: Oracle Database is a commercial relational database management system. It's known for its robustness, scalability, and support for enterprise-level applications. It's commonly used in large corporations and organizations.
+
+1. `Microsoft SQL Server`: SQL Server is a relational database management system developed by Microsoft. It's often used in Windows-based environments and integrates well with other Microsoft products like .NET and Excel.
+
+1. `SQLite`: SQLite is a lightweight and embedded relational database system. It's used in a wide range of applications, including mobile apps, desktop applications, and embedded systems. It doesn't require a separate server process and is self-contained within the application.
+
+1. `IBM Db2`: Db2 is a family of data management products, including both relational and non-relational database systems. It's used in enterprise-level applications and supports a wide range of data types and data warehousing capabilities.
+
+1. `MariaDB`: MariaDB is an open-source relational database management system and a MySQL fork. It aims to be compatible with MySQL and is often used as a drop-in replacement for MySQL.
+
+1. `SQLite`: SQLite is a self-contained, serverless, and zero-configuration SQL database engine. It's commonly used in mobile applications and as an embedded database in various software products.
+
+1. `Amazon RDS`: Amazon RDS (Relational Database Service) is a cloud-based service that allows you to set up, operate, and scale a relational database in the cloud. It supports several database engines, including MySQL, PostgreSQL, Microsoft SQL Server, and Oracle Database.
+
+1. `Google Cloud SQL`: Google Cloud SQL is a fully managed relational database service on Google Cloud Platform. It supports MySQL, PostgreSQL, and SQL Server as database engines.
