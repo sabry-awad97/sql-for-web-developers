@@ -180,3 +180,53 @@ In the world of database management systems, there are two primary categories: S
 - **Choose NoSQL** when your data is unstructured, rapidly evolving, or distributed across multiple locations. NoSQL databases are well-suited for applications that prioritize scalability and can tolerate eventual consistency.
 
 Remember that the choice between SQL and NoSQL depends on the specific requirements of your application. In some cases, hybrid solutions combine both types of databases to leverage the strengths of each for different parts of an application.
+
+## SQLite - A Self-contained Database Engine
+
+SQLite is a powerful and lightweight relational database management system (RDBMS) known for its simplicity and self-contained nature. Here's a closer look at SQLite:
+
+### 1\. Embedded Database
+
+- SQLite is often referred to as an "embedded" or "serverless" database because it doesn't require a separate server process to function.
+- It's included as a library in various programming languages, making it easy to integrate into applications.
+
+### 2\. Single-File Database
+
+- SQLite databases are stored in a single file on disk, making them easy to transport, backup, and manage.
+- This simplicity makes it a great choice for mobile applications and small to medium-sized projects.
+
+### 3\. Self-Contained
+
+- SQLite databases are self-contained, meaning the entire database, including tables, indexes, and data, is contained within a single file.
+- This file can be as simple as a plain text file with a `.db` extension.
+
+### 4\. ACID Compliant
+
+- SQLite follows the ACID (Atomicity, Consistency, Isolation, Durability) properties, ensuring data integrity and reliability.
+- It supports transactions, making it suitable for applications requiring data consistency.
+
+### 5\. Data Types
+
+- SQLite supports various data types, including INTEGER, TEXT, REAL, BLOB, and NULL, providing flexibility in data storage.
+
+### 6\. Use Cases
+
+- SQLite is commonly used in mobile applications, desktop software, web browsers, and embedded systems.
+- It's an excellent choice for applications with modest data storage needs.
+
+### 7\. SQL Compatibility
+
+- SQLite uses SQL (Structured Query Language) as its query language, making it easy for developers familiar with SQL to work with it.
+- It supports standard SQL commands, including SELECT, INSERT, UPDATE, DELETE, and JOIN.
+
+### 8\. Open-Source
+
+- SQLite is open-source, making it freely available for anyone to use, modify, and distribute.
+- It has a large and active community of developers.
+
+### 9\. Limitations
+
+- While SQLite is versatile, it may not be suitable for very large-scale applications with high concurrent access due to its file-based nature.
+- It may not be the best choice for multi-user, heavily concurrent server-based applications.
+
+In summary, SQLite is an excellent choice for small to medium-sized projects, mobile applications, and scenarios where simplicity, portability, and self-containment are essential. It offers ACID compliance, SQL compatibility, and versatility, making it a valuable tool for developers.
