@@ -58,3 +58,34 @@ Let's consider an example of a "Products" table:
 In this example, "Products" is the table, and each row represents a different product with attributes like "ProductID," "ProductName," "Price," and "Category."
 
 Tables play a vital role in structuring and organizing data in relational databases. They allow for efficient storage, retrieval, and manipulation of information, making them a foundational concept in database management.
+
+## Creating a Table
+
+Creating a table in a relational database is an essential task when designing a database schema. To create a table, you typically use SQL (Structured Query Language) commands.
+
+Let's assume we want to create a simple table to store information about employees in a company.
+
+The table will have the following columns:
+
+1. `id`: This column will hold unique identification numbers (INTEGER) for each employee. These ID numbers help differentiate one employee from another.
+
+1. `name`: The "name" column will store the names (TEXT) of the employees. It allows for variable-length text values to accommodate different names.
+
+1. `age`: The "age" column will capture the ages (INTEGER) of the employees. This data can be useful for various HR-related analyses.
+
+1. `is_manager`: This column, using the data type BOOLEAN, will indicate whether an employee is a manager or not. BOOLEAN values typically represent true (for managers) or false (for non-managers).
+
+1. `salary`: The "salary" column is designed to hold salary information (INTEGER) for each employee, typically in the form of whole numbers representing currency.
+
+Here's the SQL command to create such a table:
+
+```sql
+CREATE TABLE
+    employees (
+        id INTEGER,
+        name TEXT,
+        age INTEGER,
+        is_manager BOOLEAN,
+        salary INTEGER
+    );
+```
