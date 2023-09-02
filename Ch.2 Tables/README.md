@@ -171,3 +171,42 @@ Altering tables in a relational database involves making changes to the structur
    ALTER TABLE customers
    DROP CONSTRAINT unique_email;
    ```
+
+Certainly, let's delve into the concept of database migrations in the context of SQL databases.
+
+## Database Migrations
+
+### What Are Database Migrations?
+
+Database migrations are a crucial part of managing a database schema over time. They are a set of scripts or commands that allow you to make changes to your database schema in a controlled and organized way. This is essential when you're developing an application that uses a database because as your application evolves, your database schema often needs to change to accommodate new features or requirements.
+
+### Why Use Database Migrations?
+
+1. **Version Control**: Migrations provide a way to version control your database schema. Each migration is typically associated with a specific version of your application code. This ensures that your database schema is always in sync with your application's codebase.
+2. **Collaboration**: In a team environment, migrations make it easier for multiple developers to work on the same project. Each developer can create and apply their own migrations, and these changes can be merged into a single database schema.
+3. **Rollbacks**: Migrations are often reversible. If a migration causes issues, you can create a rollback migration to revert the changes, returning the database to a previous state.
+4. **History**: Migrations maintain a history of all changes made to the database schema. This is useful for auditing, debugging, and understanding the evolution of your database.
+
+### How Database Migrations Work
+
+Here's a simplified step-by-step process of how database migrations typically work:
+
+1. **Create a Migration**: When you need to make a change to the database schema, you create a new migration. This migration file contains the SQL statements required to make the change.
+2. **Apply the Migration**: You run a command or script to apply the migration. This executes the SQL statements in the migration file, making the necessary changes to the database schema.
+3. **Version Tracking**: The system keeps track of which migrations have been applied. It records this information in a special table in the database.
+4. **Rollbacks**: If needed, you can create a rollback migration that contains the SQL statements to undo the changes made by a previous migration.
+5. **Collaboration**: Multiple developers can create and apply their own migrations, and the system ensures that migrations are applied in the correct order.
+
+### Example of a Database Migration
+
+Let's say you want to add a new column called `birth_date` to a `users` table. Here's how you might create a migration for this task:
+
+```sql
+-- In a migration file named something like "20230903120000_add_birth_date_column.sql"
+
+-- Add the new column
+ALTER TABLE users
+ADD COLUMN birth_date DATE;
+```
+
+After creating and applying this migration, the `users` table will have a new `birth_date` column.
