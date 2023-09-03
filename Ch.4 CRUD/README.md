@@ -328,3 +328,63 @@ In this query, the COUNT function is used to count the number of orders with the
 
 - The COUNT function returns an integer value.
 - It's often used in combination with other SQL functions and clauses to perform complex queries.
+
+## The WHERE Clause
+
+## What Is the WHERE Clause?
+
+The **WHERE** clause in SQL is used to filter and retrieve specific rows from a database table that meet a specified condition or set of conditions. It allows you to narrow down your query results and focus on the data that matches your criteria.
+
+## Syntax of the WHERE Clause
+
+The basic syntax of the WHERE clause in a SELECT statement is as follows:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+```
+
+- `column1, column2, ...`: The columns you want to retrieve.
+- `table_name`: The name of the table from which you want to retrieve data.
+- `condition`: The condition that specifies which rows to include in the result set. Rows that satisfy this condition will be returned.
+
+### Examples of Using the WHERE Clause
+
+#### Example 1: Basic WHERE Clause
+
+```sql
+SELECT
+    first_name,
+    last_name
+FROM employees
+WHERE department = 'HR';
+```
+
+In this query, the WHERE clause filters the "employees" table to retrieve only the first and last names of employees who work in the HR department.
+
+#### Example 2: Combining Conditions
+
+```sql
+SELECT
+    product_name,
+    unit_price
+FROM products
+WHERE
+    category = 'Electronics'
+    AND stock_quantity > 10;
+```
+
+This query retrieves the product name and unit price from the "products" table for products in the "Electronics" category with a stock quantity greater than 10.
+
+### Use Cases for the WHERE Clause
+
+- **Data Retrieval**: Use WHERE to extract specific data subsets, such as all orders placed by a particular customer.
+- **Filtering**: It's useful for filtering records based on various criteria, such as date ranges, numerical values, or text patterns.
+- **Conditional Joins**: Combine WHERE with JOIN clauses to specify conditions for joining multiple tables.
+- **Aggregate Functions**: Use WHERE to filter data before applying aggregate functions like COUNT, SUM, or AVG.
+
+### Note on **WHERE** Clause
+
+- You can use logical operators such as AND, OR, and NOT to create complex conditions in the WHERE clause.
+- Be cautious with the use of the WHERE clause, as incorrect conditions may result in unintended data retrieval.
