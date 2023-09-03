@@ -186,3 +186,55 @@ FROM products;
 ```
 
 In this example, the `IIF` function categorizes products as 'Expensive' or 'Affordable' based on the price.
+
+## The BETWEEN Operator in SQL
+
+### What Is the BETWEEN Operator?
+
+The "BETWEEN" operator in SQL is used to filter rows in a database table based on a specified range of values. It checks if a column value falls within a given range, inclusive of both endpoints. The "BETWEEN" operator simplifies the process of filtering data within a range without writing complex conditional statements.
+
+### Syntax of the BETWEEN Operator
+
+The syntax of the "BETWEEN" operator typically follows this format:
+
+```sql
+column_name BETWEEN value1 AND value2;
+```
+
+- `column_name`: The name of the column you want to compare.
+- `value1` and `value2`: The two values that define the range.
+
+### Using the BETWEEN Operator
+
+Here's an example of using the "BETWEEN" operator to retrieve all orders with order dates between January 1, 2023, and December 31, 2023:
+
+```sql
+SELECT order_id, order_date
+FROM orders
+WHERE order_date BETWEEN '2023-01-01' AND '2023-12-31';
+```
+
+In this query, "order_date BETWEEN '2023-01-01' AND '2023-12-31'" filters rows where the "order_date" falls within the specified date range.
+
+### Benefits of the BETWEEN Operator
+
+- **Simplicity**: The "BETWEEN" operator simplifies range-based filtering, making queries more concise and readable.
+- **Inclusivity**: It includes both endpoints of the range, ensuring that values equal to the endpoints are included in the result.
+- **Readability**: The "BETWEEN" operator makes the intention of range filtering clear in the SQL query.
+
+### Limitations of the BETWEEN operator
+
+- The "BETWEEN" operator is often used for numeric and date/time data types. When working with strings, be aware that sorting rules may affect the results, and case sensitivity may vary between databases.
+- It's essential to specify the correct order for the range values. "value1" should be less than or equal to "value2" for the operator to work as expected.
+
+### Example Use Case for the BETWEEN operator
+
+Suppose you have a table of products with prices, and you want to retrieve products with prices between $50 and $100:
+
+```sql
+SELECT product_name, price
+FROM products
+WHERE price BETWEEN 50 AND 100;
+```
+
+In this example, the "BETWEEN" operator filters products with prices falling within the specified range.
