@@ -69,3 +69,48 @@ DELETE FROM employees WHERE employee_id = 101;
 ## Importance of CRUD Operations
 
 CRUD operations are essential for data management, application functionality, and maintaining data integrity. They form the foundation for building interactive and dynamic applications that interact with databases.
+
+## The INSERT Statement
+
+The **INSERT statement** in SQL is used to add new records or rows into a table. It allows you to insert data into specific columns of a table, creating new records with each insertion.
+
+### Syntax of the INSERT Statement
+
+The basic syntax of the INSERT statement is as follows:
+
+```sql
+INSERT INTO
+    table_name (column1, column2, column3,...)
+VALUES (value1, value2, value3,...);
+```
+
+- `table_name`: The name of the table where you want to insert data.
+- `(column1, column2, column3, ...)`: A comma-separated list of columns into which you want to insert data. This part is optional, and if omitted, values must be provided for all columns in the same order as they appear in the table.
+- `VALUES (value1, value2, value3, ...)`: The values you want to insert into the specified columns. These values should match the data types of the corresponding columns.
+
+### Examples of Using the INSERT Statement
+
+#### Inserting Data into All Columns
+
+```sql
+-- Insert a new employee record into the "employees" table
+INSERT INTO employees VALUES (101, 'John', 'Doe', 'Software Engineer', '2023-09-01');
+```
+
+In this example, data is inserted into all columns of the "employees" table in the order they appear.
+
+#### Inserting Data into Specific Columns
+
+```sql
+-- Insert a new customer record with specific columns
+INSERT INTO customers (customer_id, first_name, last_name, email)
+VALUES (201, 'Alice', 'Smith', 'alice@example.com');
+```
+
+Here, data is inserted only into the specified columns of the "customers" table, leaving other columns with their default or null values.
+
+### Importance of the INSERT Statement
+
+- The INSERT statement is essential for populating tables with initial data.
+- It allows you to add new records to a database, ensuring that data is correctly structured and consistent.
+- INSERT is used in conjunction with other SQL statements to maintain and manipulate data in databases.
