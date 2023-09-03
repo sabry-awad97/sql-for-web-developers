@@ -442,4 +442,75 @@ WHERE
 
 In this example, the "IN" operator filters orders placed by customers with IDs 101, 102, or 105.
 
-The "IN" operator is a valuable tool for filtering rows in SQL queries based on a predefined set of values, making it particularly useful for filtering data from specific categories, customer IDs, or other criteria.
+## The LIKE Operator in SQL
+
+### What Is the LIKE Operator?
+
+The "LIKE" operator in SQL is used to filter rows based on a pattern of characters in a column's value. It is particularly useful for searching and retrieving rows that match a specific pattern, such as finding names that contain a certain sequence of letters or email addresses with a specific domain.
+
+### Syntax of the LIKE Operator
+
+The syntax of the "LIKE" operator typically follows this format:
+
+```sql
+column_name LIKE pattern;
+```
+
+- `column_name`: The name of the column you want to search within.
+- `pattern`: The pattern you want to match. It can include wildcard characters.
+
+### Using the LIKE Operator with Wildcards
+
+The "LIKE" operator is often used with wildcard characters to create flexible pattern matching:
+
+- `%` (percent sign): Matches any sequence of characters (including zero characters).
+- `_` (underscore): Matches any single character.
+
+Here are some examples of using the "LIKE" operator with wildcards:
+
+- To find all customers with names starting with "John":
+
+  ```sql
+  SELECT customer_name
+  FROM customers
+  WHERE customer_name LIKE 'John%';
+  ```
+
+- To find all email addresses with the domain "example.com":
+
+  ```sql
+  SELECT email
+  FROM contacts
+  WHERE email LIKE '%@example.com';
+  ```
+
+- To find all products with a name that contains the word "blue" anywhere:
+
+  ```sql
+  SELECT product_name
+  FROM products
+  WHERE product_name LIKE '%blue%';
+  ```
+
+### Benefits of the LIKE Operator
+
+- **Pattern Matching**: The "LIKE" operator allows you to perform pattern matching for flexible searching.
+- **Text-Based Searches**: It is valuable for searching text data, such as names, email addresses, or product descriptions.
+- **Wildcard Usage**: The wildcard characters `%` and `_` provide flexibility in specifying patterns.
+
+### Limitations of the LIKE operator
+
+- Pattern matching using the "LIKE" operator can be resource-intensive when used on large datasets, as it may require scanning through all rows.
+- Depending on the database system, the behavior of case sensitivity (whether the pattern matching is case-sensitive or case-insensitive) may vary.
+
+### Example Use Case for the LIKE operator
+
+Suppose you have a table of employees, and you want to retrieve employees with email addresses from a specific domain, such as "example.com":
+
+```sql
+SELECT employee_name, email
+FROM employees
+WHERE email LIKE '%@example.com';
+```
+
+In this example, the "LIKE" operator with the '%@example.com' pattern matches employees with email addresses from the specified domain.
