@@ -183,3 +183,52 @@ DELETE /api/users/1
 - This lifecycle is fundamental for building interactive and dynamic web applications.
 - It allows web developers to interact with databases over the HTTP protocol, enabling data management in web applications.
 - It follows a RESTful design pattern, making APIs predictable and easy to use.
+
+## Auto Increment
+
+### What Is Auto Increment?
+
+Auto Increment is a database feature that automatically generates a unique numeric value for each new record or row added to a table. It is commonly used for creating primary keys, which are unique identifiers for database records.
+
+### Key Characteristics of Auto Increment
+
+- **Uniqueness**: Each generated value is unique within the table, ensuring that no two records have the same identifier.
+
+- **Sequential**: Auto Increment values are typically generated in sequential order. The first record gets the lowest value, and subsequent records receive incrementally higher values.
+
+- **Primary Key Usage**: Auto Increment values are often used as primary keys, providing a reliable way to identify and retrieve records.
+
+In SQL databases, you can specify a column as an auto-incrementing primary key. Here's an example using MySQL:
+
+```sql
+CREATE TABLE
+    employees (
+        employee_id INT AUTO_INCREMENT PRIMARY KEY,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50),
+        job_title VARCHAR(100)
+    );
+```
+
+In this example, the `employee_id` column is designated as an auto-incrementing primary key. When you insert a new record into the "employees" table without specifying a value for `employee_id`, the database system automatically generates a unique and sequential value for it.
+
+### Benefits of Auto Increment
+
+1. **Uniqueness**: Auto Increment ensures that each record in a table has a unique identifier, eliminating duplicates.
+
+1. **Simplicity**: It simplifies the process of creating primary keys, as you don't need to manually generate unique values.
+
+1. **Efficiency**: Auto Increment values are generated efficiently and quickly by the database system.
+
+### Use Cases for Auto Increment
+
+Auto Increment is commonly used in scenarios where unique identifiers are needed, such as:
+
+- Employee IDs in HR databases.
+- Customer IDs in e-commerce systems.
+- Order numbers in inventory management.
+- Student IDs in educational databases.
+
+### Note
+
+While auto incrementing values are typically numeric, some databases offer similar features for other data types like UUIDs (Universally Unique Identifiers) for globally unique identifiers.
