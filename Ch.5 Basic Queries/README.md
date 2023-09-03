@@ -122,3 +122,67 @@ In this query, `AVG()` is a built-in aggregate function that calculates the aver
 - **Data Manipulation**: Functions allow you to manipulate data within SQL queries, making it possible to transform, aggregate, or format data as needed.
 - **Reusability**: User-defined functions promote code reusability by encapsulating custom logic, which can be called from multiple queries.
 - **Performance**: Functions can enhance query performance by avoiding the need for complex calculations in client applications.
+
+## The IIF Function in SQL
+
+## What Is the IIF Function?
+
+The `IIF` function, short for "Immediate If," is a conditional function available in some SQL database systems. It allows you to perform conditional evaluations and return one of two values based on a specified condition. The `IIF` function is similar to the `CASE` statement but provides a more concise way to express simple conditional logic.
+
+## Syntax of the IIF Function
+
+The syntax of the `IIF` function typically follows this format:
+
+`IIF(condition, value_if_true, value_if_false)`
+
+- `condition`: A Boolean expression or a condition that evaluates to either true or false.
+- `value_if_true`: The value to return if the condition is true.
+- `value_if_false`: The value to return if the condition is false.
+
+## Using the IIF Function
+
+Here's an example of using the `IIF` function to categorize employees as "Full-time" or "Part-time" based on their weekly work hours:
+
+```sql
+SELECT
+    employee_name,
+    weekly_hours,
+    IIF(
+        weekly_hours >= 40,
+        'Full-time',
+        'Part-time'
+    ) AS employment_status
+FROM employees;
+```
+
+In this query, if the `weekly_hours` is greater than or equal to 40, the `IIF` function returns 'Full-time,' otherwise, it returns 'Part-time' as the `employment_status`.
+
+## Benefits of the IIF Function
+
+- **Simplicity**: The `IIF` function provides a concise and readable way to express simple conditional logic within SQL queries.
+- **Readability**: It enhances query readability by reducing the need for lengthy `CASE` statements when dealing with basic conditions.
+- **Performance**: For straightforward conditions, the `IIF` function can lead to more optimized query execution compared to more complex conditional constructs.
+- **Ease of Use**: Developers familiar with programming languages may find the `IIF` function intuitive, as it resembles conditional statements in many programming languages.
+
+## Limitations
+
+- Not all database systems support the `IIF` function. Its availability may vary depending on the database you are using. In some databases, you may need to use a similar function like `CASE` instead.
+- The `IIF` function is most suitable for simple conditional expressions. For complex conditions or multi-branch logic, the `CASE` statement is a more flexible choice.
+
+## Example Use Case
+
+Suppose you have a table of products with prices, and you want to categorize them as either "Expensive" or "Affordable" based on a price threshold:
+
+```sql
+SELECT
+    product_name,
+    price,
+    IIF(
+        price >= 100,
+        'Expensive',
+        'Affordable'
+    ) AS price_category
+FROM products;
+```
+
+In this example, the `IIF` function categorizes products as 'Expensive' or 'Affordable' based on the price.
