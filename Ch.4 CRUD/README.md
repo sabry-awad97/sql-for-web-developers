@@ -434,49 +434,49 @@ In this query, the DELETE statement removes all rows from the "customers" table 
 
 When working with DELETE statements in SQL, it's essential to be cautious and follow best practices to avoid errors and unintended data deletion. Here are some common mistakes to avoid:
 
-## 1\. Not Using a WHERE Clause
+### 1\. Not Using a WHERE Clause
 
 **Mistake:** Deleting rows without specifying a WHERE clause can result in all records being removed from a table.
 
 **Best Practice:** Always use a WHERE clause to specify the condition that identifies the rows to be deleted. This ensures that only the intended rows are removed.
 
-## 2\. Not Using Transactions
+### 2\. Not Using Transactions
 
 **Mistake:** Deleting rows without using transactions can lead to partial data deletion if an error occurs during the DELETE operation.
 
 **Best Practice:** Wrap your DELETE statement in a transaction. This allows you to either commit the changes if everything is successful or roll back the transaction if an error occurs, ensuring data consistency.
 
-## 3\. Not Backing Up Data
+### 3\. Not Backing Up Data
 
 **Mistake:** Deleting data without a backup can be risky. If you accidentally delete the wrong records, it may be challenging to recover them.
 
 **Best Practice:** Before executing a DELETE statement, consider creating a backup of the data you're about to delete. This provides a safety net in case of accidental data loss.
 
-## 4\. Not Considering Foreign Key Constraints
+### 4\. Not Considering Foreign Key Constraints
 
 **Mistake:** Deleting records from a table with foreign key constraints without considering cascading deletes can break referential integrity in the database.
 
 **Best Practice:** Be aware of foreign key constraints and their effects. If necessary, define cascading delete actions to ensure that related records are also removed when a parent record is deleted.
 
-## 5\. Deleting Records Without Validation
+### 5\. Deleting Records Without Validation
 
 **Mistake:** Deleting records based solely on user input or unvalidated data can be dangerous. It may allow malicious users to perform unauthorized deletions.
 
 **Best Practice:** Always validate and sanitize user input to prevent SQL injection attacks. Verify that the user has appropriate permissions before executing DELETE statements.
 
-## 6\. Not Testing DELETE Statements
+### 6\. Not Testing DELETE Statements
 
 **Mistake:** Failing to test DELETE statements in a development or staging environment before running them in a production environment can lead to unexpected results.
 
 **Best Practice:** Always test your DELETE statements on a copy of the data or in a non-production environment to ensure they work as intended and do not cause data loss.
 
-## 7\. Not Using WHERE with JOINs
+### 7\. Not Using WHERE with JOINs
 
 **Mistake:** When using JOINs in DELETE statements, not using the WHERE clause to specify which rows to delete can lead to unintended deletions from multiple tables.
 
 **Best Practice:** If you use JOINs in DELETE statements, include a WHERE clause to define which rows should be deleted from the joined tables.
 
-## 8\. Not Monitoring DELETE Statements
+### 8\. Not Monitoring DELETE Statements
 
 **Mistake:** Failing to monitor and log DELETE statements can make it challenging to track who deleted what data and when.
 
