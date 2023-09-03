@@ -316,3 +316,33 @@ CREATE TABLE order_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 ```
+
+## Referential Integrity in SQL
+
+Referential integrity is a crucial concept in the world of SQL (Structured Query Language). It ensures that relationships between tables are maintained correctly, preventing data inconsistencies and errors. Let's dive into the details.
+
+### What is Referential Integrity?
+
+Referential Integrity is a set of rules that enforces the relationships between tables in a relational database. These relationships are typically established through foreign keys, which are columns in a table that reference the primary key of another table. Here are the key aspects:
+
+1. **Primary Key**: A primary key is a unique identifier for each row in a table. It ensures that every record in the table is unique and can be used to establish relationships with other tables.
+
+2. **Foreign Key**: A foreign key is a column in one table that references the primary key in another table. It creates a link between the two tables, allowing you to retrieve related data.
+
+3. **Cascade Operations**: Referential integrity can specify what happens when a record with a foreign key is updated or deleted. There are typically three options: CASCADE, SET NULL, and SET DEFAULT.
+
+   - **CASCADE**: If a record with a foreign key is updated or deleted, the corresponding records in related tables are also updated or deleted.
+   - **SET NULL**: If a record with a foreign key is updated or deleted, the foreign key column in related records is set to NULL.
+   - **SET DEFAULT**: If a record with a foreign key is updated or deleted, the foreign key column in related records is set to its default value.
+
+### Why is Referential Integrity Important?
+
+Referential integrity serves several vital purposes:
+
+1. **Data Accuracy**: It ensures that the data in your database is accurate and consistent. Without it, you could have orphaned records or records with incorrect references.
+
+2. **Data Integrity**: It maintains the integrity of relationships between tables, preventing data corruption and anomalies.
+
+3. **Enforces Business Rules**: It helps enforce business rules and constraints. For example, it can ensure that a customer's order is associated with a valid customer ID.
+
+4. **Data Security**: It can enhance data security by preventing unauthorized changes or deletions of critical records.
