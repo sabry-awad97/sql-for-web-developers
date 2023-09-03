@@ -289,3 +289,79 @@ FROM orders;
 ```
 
 In this example, the "DISTINCT" keyword ensures that each customer name is listed only once in the result set.
+
+## Logical Operators in SQL
+
+### What Are Logical Operators?
+
+Logical operators in SQL are used to perform logical operations on one or more conditions in SQL queries. These operators allow you to combine conditions to filter and retrieve data based on more complex criteria. There are three main logical operators in SQL:
+
+1. **AND**: The "AND" operator is used to combine two or more conditions, and it returns true if all the conditions are true. It acts as a logical "and" between conditions.
+2. **OR**: The "OR" operator is used to combine two or more conditions, and it returns true if at least one of the conditions is true. It acts as a logical "or" between conditions.
+3. **NOT**: The "NOT" operator is used to negate or reverse the result of a condition. It returns true if the condition is false and vice versa.
+
+### Using Logical Operators
+
+#### 1\. AND Operator
+
+The "AND" operator is typically used in the "WHERE" clause to filter rows that meet multiple conditions simultaneously. For example:
+
+```sql
+SELECT product_name, price
+FROM products
+WHERE
+    category = 'Electronics'
+    AND price < 500;
+```
+
+In this query, the "AND" operator combines two conditions: "category = 'Electronics'" and "price < 500," ensuring that both conditions must be true for a row to be included in the result.
+
+#### 2\. OR Operator
+
+The "OR" operator is also used in the "WHERE" clause to filter rows based on multiple conditions, but it returns true if at least one of the conditions is true. For example:
+
+```sql
+SELECT customer_name, city
+FROM customers
+WHERE
+    city = 'New York'
+    OR city = 'Los Angeles';
+```
+
+In this query, the "OR" operator allows rows with either "city = 'New York'" or "city = 'Los Angeles'" to be included in the result.
+
+#### 3\. NOT Operator
+
+The "NOT" operator negates the result of a condition. It is often used to filter rows that do not meet a specific condition. For example:
+
+```sql
+SELECT product_name, price
+FROM products
+WHERE NOT category = 'Clothing';
+```
+
+In this query, the "NOT" operator excludes rows where the "category" is 'Clothing.'
+
+### Combining Logical Operators
+
+You can combine logical operators to create more complex conditions. Parentheses can be used to control the order of evaluation. For example:
+
+```sql
+SELECT
+    customer_name,
+    order_date
+FROM orders
+WHERE (
+        order_date >= '2023-01-01'
+        AND order_date <= '2023-12-31'
+    )
+    OR (order_total > 1000);
+```
+
+In this query, we use both "AND" and "OR" operators to filter rows based on date range and order total.
+
+### Benefits of Logical Operators
+
+- **Complex Filtering**: Logical operators allow you to create complex conditions by combining multiple criteria.
+- **Precise Data Retrieval**: You can precisely filter the data you need by specifying conditions that must be met.
+- **Flexibility**: Logical operators make SQL queries flexible and adaptable to various filtering requirements.
