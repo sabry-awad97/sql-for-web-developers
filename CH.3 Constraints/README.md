@@ -184,3 +184,72 @@ MODIFY email VARCHAR(100) NOT NULL;
 - **Query Accuracy**: Queries and reports that depend on certain columns being non-null can rely on the data's consistency.
 - **Error Prevention**: It prevents unintentional omission of critical data during data entry.
 - **Simplified Validation**: When you insert or update records, you don't need to perform additional checks for null values; the constraint handles it for you.
+
+Certainly! Let's explore the concept of primary keys in SQL databases.
+
+## Primary Keys in SQL Databases
+
+### What Is a Primary Key?
+
+A **primary key** in a SQL database is a special column or combination of columns that uniquely identifies each row (record) in a table. It serves as a fundamental component of a relational database by ensuring the uniqueness of each record and providing a means to establish relationships between tables.
+
+### Key Characteristics of Primary Keys
+
+- **Uniqueness**: Every value in a primary key column must be unique within the table. This uniqueness ensures that each row can be uniquely identified.
+- **Non-null**: A primary key column cannot contain null values. Every record must have a non-null value in the primary key column(s).
+- **Single or Composite**: A primary key can consist of a single column (simple primary key) or a combination of multiple columns (composite primary key).
+
+### Defining a Primary Key
+
+You can define a primary key when creating a table using the `PRIMARY KEY` constraint. Here's the syntax:
+
+```sql
+CREATE TABLE table_name (
+    column1 datatype PRIMARY KEY,
+    column2 datatype,
+    ...
+);
+```
+
+You can also add a primary key to an existing table using the `ALTER TABLE` statement:
+
+```sql
+ALTER TABLE table_name
+ADD PRIMARY KEY (column_name);
+```
+
+### Why Use a Primary Key?
+
+Primary keys serve several critical purposes in databases:
+
+1. **Uniqueness**: They ensure that each record in a table has a unique identifier, preventing data duplication.
+2. **Data Integrity**: Primary keys enforce data integrity by requiring non-null, unique values, reducing the risk of errors and inconsistencies.
+3. **Relationships**: Primary keys are used as references in foreign keys to establish relationships between tables, ensuring referential integrity.
+4. **Efficient Data Retrieval**: They enhance the speed of data retrieval, as databases can use primary keys for indexing and optimizing queries.
+
+### Examples of Using Primary Keys
+
+#### Simple Primary Key
+
+Let's say you want to create a table called `students` with a simple primary key on the `student_id` column:
+
+```sql
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+);
+```
+
+#### Composite Primary Key
+
+In some cases, you may need a composite primary key. For example, in an order details table, you might have a composite primary key consisting of `order_id` and `product_id` to ensure each product in an order is unique:
+
+```sql
+CREATE TABLE order_details (
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    PRIMARY KEY (order_id, product_id)
+);
+```
