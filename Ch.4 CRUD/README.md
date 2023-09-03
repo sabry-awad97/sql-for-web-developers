@@ -654,3 +654,43 @@ In this query, the UPDATE statement decreases the "stock_quantity" of all produc
 - **Data Maintenance**: Update records to reflect changes, such as price adjustments, address updates, or status changes.
 - **Increment and Decrement**: Modify numeric values, like stock quantities, by incrementing or decrementing them.
 - **Data Transformation**: Use UPDATE in data transformation processes, like converting data from one format to another.
+
+## Object-Relational Mapping (ORM)
+
+## What Is Object-Relational Mapping (ORM)?
+
+**Object-Relational Mapping (ORM)** is a programming technique used in software development to bridge the gap between object-oriented programming languages (such as Rust, Python, or Javascript) and relational databases (such as MySQL, PostgreSQL, or Oracle). It provides a way to interact with a relational database using objects and classes, making it easier for developers to work with databases in an object-oriented manner.
+
+### Key Concepts in ORM
+
+1. **Objects as Database Entities**: ORM allows you to represent database tables as objects or classes in your programming language. Each instance of the class corresponds to a row in the database table.
+2. **Mapping**: ORM tools provide mechanisms for mapping between database tables and objects. This mapping includes defining relationships, data types, and constraints.
+3. **Abstraction**: ORM abstracts away the SQL queries required for database interactions. Developers can work with objects and methods, rather than writing raw SQL.
+4. **CRUD Operations**: ORM tools typically support the four fundamental database operations: Create, Read, Update, and Delete (CRUD), making it easy to perform these operations using object-oriented syntax.
+5. **Query Language**: ORM frameworks often provide a query language or query builder to retrieve and manipulate data. These query languages are more intuitive for developers familiar with programming languages.
+
+### Advantages of Using ORM
+
+1. **Productivity**: ORM simplifies database interactions, reducing the need to write low-level SQL queries. This can significantly speed up development.
+2. **Portability**: ORM allows you to write code that is not tied to a specific database system. You can switch between different database systems with minimal code changes.
+3. **Code Maintainability**: ORM promotes cleaner and more maintainable code by encapsulating database operations within classes and methods.
+4. **Reduced SQL Injection Risk**: ORM tools often provide built-in security features that help prevent SQL injection attacks.
+
+### Popular ORM Frameworks
+
+There are many ORM frameworks available for various programming languages. Some popular ones include:
+
+- **SQLAlchemy**: A Python-based ORM toolkit and Object-Relational Mapping (ORM) library.
+- **Diesel**: Diesel is one of the most popular ORM libraries for Rust. It provides a powerful query builder and type-safe queries. Diesel supports multiple database backends, including PostgreSQL, MySQL, and SQLite.
+- **Rusqlite**: While not a full-fledged ORM, Rusqlite is a Rust library for SQLite databases. It allows you to work with SQLite databases in a safe and idiomatic Rust way.
+- **Sequelize**: While Sequelize is often associated with JavaScript, it works seamlessly with TypeScript. It's a powerful ORM that supports multiple databases and provides a straightforward way to define models and perform database operations.
+- **TypeORM**: TypeORM is one of the most widely used ORM libraries for TypeScript and JavaScript. It supports various database backends, including PostgreSQL, MySQL, and SQLite. TypeORM provides a rich set of features for managing database schema, relationships, and queries.
+- **Prisma**: Prisma is a modern database toolkit and ORM for TypeScript, Node.js, and other languages. It offers strong type safety, auto-generates a query builder, and simplifies database migrations.
+
+### Considerations When Using ORM
+
+- While ORM offers many advantages, it's essential to understand the underlying database structure and SQL for optimizing performance and troubleshooting.
+- ORM introduces a layer of abstraction, which may not always align perfectly with the database's capabilities. It's crucial to understand how your chosen ORM tool maps to the database.
+- Be mindful of the potential overhead that ORM can introduce, especially in complex queries.
+
+By using ORM effectively, developers can work with databases in a more natural, object-oriented way, improving code quality and productivity in database-driven applications.
