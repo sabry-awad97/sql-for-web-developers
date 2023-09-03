@@ -185,8 +185,6 @@ MODIFY email VARCHAR(100) NOT NULL;
 - **Error Prevention**: It prevents unintentional omission of critical data during data entry.
 - **Simplified Validation**: When you insert or update records, you don't need to perform additional checks for null values; the constraint handles it for you.
 
-Certainly! Let's explore the concept of primary keys in SQL databases.
-
 ## Primary Keys in SQL Databases
 
 ### What Is a Primary Key?
@@ -251,5 +249,70 @@ CREATE TABLE order_details (
     product_id INT,
     quantity INT,
     PRIMARY KEY (order_id, product_id)
+);
+```
+
+## Foreign Keys in SQL Databases
+
+### What Is a Foreign Key?
+
+In SQL databases, a **foreign key** is a field or a set of fields in one table that is used to establish a link between the data in two tables. Specifically, it creates a relationship between a field (or fields) in a "child" table and the primary key of a "parent" table. This relationship ensures data integrity and maintains referential integrity between related tables.
+
+### Key Characteristics of Foreign Keys
+
+- **Reference to Primary Key**: A foreign key references the primary key of another table. It establishes a connection between records in the child table and records in the parent table.
+- **Enforces Referential Integrity**: Foreign keys help maintain referential integrity, ensuring that relationships between tables are valid.
+- **Cascading Actions**: You can define cascading actions to specify what happens when records in the parent table are updated or deleted. Common actions include CASCADE, SET NULL, and SET DEFAULT.
+
+### Defining a Foreign Key
+
+To define a foreign key in SQL, you typically use the `FOREIGN KEY` constraint when creating a table. Here's the syntax:
+
+```sql
+CREATE TABLE child_table (
+    child_column datatype,
+    ...
+    FOREIGN KEY (child_column) REFERENCES parent_table(parent_column)
+);
+```
+
+This establishes a relationship between `child_column` in the child table and `parent_column` in the parent table.
+
+### Why Use Foreign Keys?
+
+Foreign keys serve several crucial purposes in databases:
+
+1. **Data Integrity**: They enforce referential integrity by ensuring that data in the child table corresponds to valid records in the parent table.
+2. **Relationships**: Foreign keys establish relationships between tables, allowing you to model complex data structures.
+3. **Consistency**: They help maintain data consistency across related tables, preventing orphaned records.
+4. **Efficient Queries**: They improve query performance by allowing the database to optimize joins between related tables.
+
+### Examples of Using Foreign Keys
+
+#### Single Foreign Key
+
+Let's say you have two tables, `orders` and `customers`, and you want to establish a relationship between them using the `customer_id` field in the `orders` table as a foreign key referencing the `customer_id` primary key in the `customers` table:
+
+```sql
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+```
+
+#### Multiple Foreign Keys
+
+In some cases, you might need multiple foreign keys in a table. For instance, in an e-commerce database, you could have an `order_items` table with foreign keys referencing both the `order_id` and `product_id` in the `orders` and `products` tables, respectively.
+
+```sql
+CREATE TABLE order_items (
+    order_item_id INT PRIMARY KEY,
+    order_id INT,
+    product_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 ```
