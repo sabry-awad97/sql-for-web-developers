@@ -388,3 +388,44 @@ This query retrieves the product name and unit price from the "products" table f
 
 - You can use logical operators such as AND, OR, and NOT to create complex conditions in the WHERE clause.
 - Be cautious with the use of the WHERE clause, as incorrect conditions may result in unintended data retrieval.
+
+## The DELETE Statement
+
+### What Is the DELETE Statement?
+
+The **DELETE** statement in SQL is used to remove one or more rows from a database table based on a specified condition. It allows you to selectively delete data from a table while preserving the remaining records.
+
+### Syntax of the DELETE Statement
+
+The basic syntax of the DELETE statement is as follows:
+
+```sql
+DELETE FROM table_name
+WHERE condition;
+```
+
+- `table_name`: The name of the table from which you want to delete rows.
+- `condition`: The condition that determines which rows to delete. Rows that satisfy this condition will be removed from the table.
+
+### Example of Using the DELETE Statement
+
+### Example: Deleting Rows Based on a Condition
+
+```sql
+DELETE FROM customers
+WHERE registration_date < '2023-01-01';
+```
+
+In this query, the DELETE statement removes all rows from the "customers" table where the registration date is earlier than January 1, 2023.
+
+### Important Considerations
+
+- Be cautious when using the DELETE statement, as it permanently removes data from a table. Ensure that the condition is correctly specified to avoid unintentional data loss.
+- Some databases support additional options with the DELETE statement, such as using the RETURNING clause to return the deleted data or using JOINs to delete rows from multiple tables.
+
+### Use Cases for the DELETE Statement
+
+- **Data Cleanup**: Use DELETE to remove obsolete or redundant records from a table.
+- **Data Archiving**: It can be used to archive data by deleting older records while preserving recent ones.
+- **Data Retention Policies**: Implement data retention policies by deleting records that are no longer required for legal or operational reasons.
+- **Data Privacy**: Delete records containing sensitive or personal information when they are no longer needed.
