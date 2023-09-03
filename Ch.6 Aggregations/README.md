@@ -67,3 +67,170 @@ FROM customers;
 ```
 
 The "COUNT" function is used to count all rows in the "customers" table.
+
+Certainly! Let's explore the "GROUP BY" clause in SQL.
+
+## The GROUP BY Clause in SQL
+
+### Understanding the GROUP BY Clause
+
+In SQL, the "GROUP BY" clause is used to group rows in a result set based on the values in one or more columns. It is particularly useful for performing aggregate calculations (such as SUM, AVG, COUNT) on groups of data rather than on individual rows. The "GROUP BY" clause helps summarize data and gain insights into specific categories or groups within a dataset.
+
+### Syntax of the GROUP BY Clause
+
+The syntax of the "GROUP BY" clause typically follows this format:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+GROUP BY column1, column2, ...;
+```
+
+- `column1, column2, ...`: The columns you want to include in the result set.
+- `table_name`: The name of the table you are querying.
+- `column1, column2, ...`: The columns by which you want to group the data.
+
+### Using the GROUP BY Clause
+
+Here's an example of using the "GROUP BY" clause to group sales data by product category:
+
+```sql
+SELECT category, SUM(sales_amount) AS total_sales
+FROM sales
+GROUP BY category;
+```
+
+In this query, the "GROUP BY" clause groups the sales data by the "category" column, and the "SUM" function calculates the total sales for each category.
+
+### Benefits of the GROUP BY Clause
+
+- **Data Summarization**: It allows you to summarize and analyze data by groups, making it easier to understand trends and patterns within the data.
+- **Aggregate Calculations**: You can perform aggregate functions (e.g., SUM, AVG, COUNT) on grouped data, providing insights into each group's characteristics.
+- **Reporting and Analytics**: The "GROUP BY" clause is commonly used in business intelligence and reporting to create summary reports.
+
+### Aggregations with GROUP BY
+
+The "GROUP BY" clause is often used in conjunction with aggregate functions to perform calculations within each group. For example:
+
+- To find the total sales for each product category:
+
+  ```sql
+  SELECT category, SUM(sales_amount) AS total_sales
+  FROM sales
+  GROUP BY category;
+  ```
+
+- To calculate the average salary for each department:
+
+  ```sql
+  SELECT department, AVG(salary) AS average_salary
+  FROM employees
+  GROUP BY department;
+  ```
+
+- To count the number of orders placed by each customer:
+
+  ```sql
+  SELECT customer_id, COUNT(order_id) AS order_count
+  FROM orders
+  GROUP BY customer_id;
+  ```
+
+### Limitations with GROUP BY
+
+- When using the "GROUP BY" clause, you can only include columns in the SELECT statement that are either part of the GROUP BY clause or used in aggregate functions. Other columns are not accessible in the result set.
+- The order in which groups are displayed in the result set may not always be guaranteed unless you use an "ORDER BY" clause.
+
+### Example Use Case for GROUP BY
+
+Suppose you have a table of student scores, and you want to find the average score for each subject:
+
+```sql
+SELECT subject, AVG(score) AS average_score
+FROM student_scores
+GROUP BY subject;
+```
+
+In this example, the "GROUP BY" clause groups the scores by "subject," and the "AVG" function calculates the average score for each subject.
+
+## The HAVING Clause in SQL
+
+### Understanding the HAVING Clause
+
+The "HAVING" clause is used in conjunction with the "GROUP BY" clause to filter the results of grouped data based on a condition. While the "WHERE" clause filters individual rows before they are grouped, the "HAVING" clause filters groups of data after they have been grouped using the "GROUP BY" clause. It is particularly useful for applying conditions to aggregated data.
+
+### Syntax of the HAVING Clause
+
+The syntax of the "HAVING" clause typically follows this format:
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+GROUP BY column1, column2, ...
+HAVING condition;
+```
+
+- `column1, column2, ...`: The columns you want to include in the result set.
+- `table_name`: The name of the table you are querying.
+- `column1, column2, ...`: The columns by which you want to group the data using the "GROUP BY" clause.
+- `condition`: The condition applied to grouped data using the "HAVING" clause.
+
+### Using the HAVING Clause
+
+Here's an example of using the "HAVING" clause to filter product categories that have total sales greater than a specified amount:
+
+```sql
+SELECT category, SUM(sales_amount) AS total_sales
+FROM sales
+GROUP BY category
+HAVING SUM(sales_amount) > 10000;
+```
+
+In this query, the "GROUP BY" clause groups the sales data by the "category" column, and the "HAVING" clause filters out categories with a total sales amount less than or equal to 10,000.
+
+### Benefits of the HAVING Clause
+
+- **Filtering Aggregated Data**: The "HAVING" clause allows you to filter groups of data based on aggregate calculations (e.g., SUM, AVG, COUNT).
+- **Conditional Analysis**: You can apply conditions to summarized data, helping you focus on specific groups of interest.
+- **Granular Control**: It provides granular control over which groups are included in the result set, allowing for more precise data analysis.
+
+### Example Use Cases for HAVING
+
+#### 1\. Filtering Averages
+
+Suppose you have a table of exam scores, and you want to find subjects where the average score is above a certain threshold:
+
+```sql
+SELECT subject, AVG(score) AS average_score
+FROM student_scores
+GROUP BY subject
+HAVING AVG(score) > 75;
+```
+
+In this query, the "HAVING" clause filters out subjects with an average score less than or equal to 75.
+
+#### 2\. Counting Orders
+
+To find customers who have placed more than a certain number of orders:
+
+```sql
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(order_id) > 5;
+```
+
+Here, the "HAVING" clause filters out customers who have placed fewer than six orders.
+
+#### 3\. Summarizing Employee Salaries
+
+To identify departments with a total salary cost exceeding a specific amount:
+
+```sql
+SELECT department, SUM(salary) AS total_salary_cost
+FROM employees
+GROUP BY department
+HAVING SUM(salary) > 50000;
+```
+
+In this query, the "HAVING" clause filters out departments with a total salary cost less than or equal to 50,000.
