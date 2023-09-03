@@ -429,3 +429,48 @@ SELECT * FROM schema_name.table_name;
 ### Default Schema
 
 In some database systems, each user has a default schema associated with their account. When users create objects without specifying a schema, they are created in their default schema. This simplifies object management and querying.
+
+Let's compare relational and non-relational databases to understand their differences and use cases.
+
+## Relational vs. Non-Relational Databases
+
+| Aspect             | Relational Databases        | Non-Relational Databases  |
+| ------------------ | --------------------------- | ------------------------- |
+| **Structure**      | Tabular Structure           | Flexible Structure        |
+|                    | (Tables with rows/columns)  | (Various formats)         |
+| **Schema**         | Structured Schema           | Schema-less               |
+|                    | (Predefined schema)         | (Dynamic data structures) |
+| **Data Integrity** | Enforced Relationships      | Looser Constraints        |
+|                    | (Primary/Foreign Keys)      | (Flexible constraints)    |
+|                    | Data Integrity Rules        | No Fixed Schema           |
+| **Query Language** | SQL                         | Varies (may not use SQL)  |
+|                    | (Structured Query Language) | (Differ by database)      |
+| **Examples**       | MySQL, PostgreSQL,          | MongoDB (document store), |
+|                    | Oracle Database,            | Cassandra (column-family  |
+|                    | Microsoft SQL Server        | store), Redis (key-value  |
+|                    |                             | store)                    |
+| **Use Cases**      | Business applications,      | Big data applications,    |
+|                    | financial systems, CMS,     | real-time analytics, CMS, |
+|                    | e-commerce                  | IoT data storage          |
+
+### When to Choose Relational vs. Non-Relational
+
+**Choose a Relational Database When:**
+
+- Your data has a structured, tabular format.
+- You require strong data integrity and consistency.
+- Your application needs complex querying and reporting capabilities.
+- You have a well-defined schema that is unlikely to change frequently.
+
+**Choose a Non-Relational Database When:**
+
+- Your data is unstructured or semi-structured.
+- Your application needs to handle large volumes of data with varying formats.
+- You prioritize scalability and can tolerate looser data constraints.
+- Your schema evolves frequently or is undefined initially.
+
+### Key Takeaways
+
+- Relational databases are structured with tables and enforce strict data integrity, making them suitable for structured data and complex querying.
+- Non-relational databases offer flexibility in handling unstructured or semi-structured data and are well-suited for scenarios requiring scalability and schema flexibility.
+- The choice between relational and non-relational databases depends on your specific data and application requirements.
