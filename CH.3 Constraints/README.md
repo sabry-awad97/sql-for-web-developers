@@ -82,8 +82,6 @@ Here are a few examples of how constraints are defined in SQL:
   );
   ```
 
-Certainly! Let's discuss null values in the context of SQL databases.
-
 ## Null Values
 
 ### What Are Null Values?
@@ -129,3 +127,60 @@ Null values serve several essential purposes in databases:
 
 - While null values are useful, they can introduce complexity when writing queries, so it's essential to handle them carefully.
 - When designing a database schema, consider whether certain columns should allow null values or if default values or constraints are more appropriate.
+
+## Defining a NOT NULL Constraint in SQL
+
+### What Is a NOT NULL Constraint?
+
+In SQL, a **NOT NULL constraint** is used to ensure that a specific column in a database table cannot contain null values. When you define a column with a NOT NULL constraint, it means that every row in the table must have a value in that column; it cannot be left empty or null.
+
+### Syntax for Defining a NOT NULL Constraint
+
+You can define a NOT NULL constraint while creating a table or altering an existing table. Here's the syntax for defining a NOT NULL constraint during table creation:
+
+```sql
+CREATE TABLE table_name (
+    column1 datatype NOT NULL,
+    column2 datatype,
+    ...
+);
+```
+
+And here's how you can add a NOT NULL constraint to an existing table using the ALTER TABLE statement:
+
+```sql
+ALTER TABLE table_name
+MODIFY column_name datatype NOT NULL;
+```
+
+### Examples of Using NOT NULL Constraint
+
+#### Table Creation
+
+Let's say you want to create a table called `employees` and ensure that the `first_name` and `last_name` columns cannot contain null values:
+
+```sql
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL
+);
+```
+
+With this definition, every row inserted into the `employees` table must include non-null values for both `first_name` and `last_name`.
+
+#### Adding NOT NULL Constraint to an Existing Table
+
+If you want to add a NOT NULL constraint to an existing table, such as ensuring that the `email` column in the `customers` table cannot contain null values, you can use the ALTER TABLE statement:
+
+```sql
+ALTER TABLE customers
+MODIFY email VARCHAR(100) NOT NULL;
+```
+
+### Benefits of Using NOT NULL Constraints
+
+- **Data Integrity**: NOT NULL constraints enforce data integrity by ensuring that essential information is always present in a column.
+- **Query Accuracy**: Queries and reports that depend on certain columns being non-null can rely on the data's consistency.
+- **Error Prevention**: It prevents unintentional omission of critical data during data entry.
+- **Simplified Validation**: When you insert or update records, you don't need to perform additional checks for null values; the constraint handles it for you.
