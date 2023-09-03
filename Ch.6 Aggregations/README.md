@@ -234,3 +234,77 @@ HAVING SUM(salary) > 50000;
 ```
 
 In this query, the "HAVING" clause filters out departments with a total salary cost less than or equal to 50,000.
+
+Certainly! Let's explore the "ROUND" function in SQL.
+
+## The ROUND Function in SQL
+
+### Understanding the ROUND Function
+
+In SQL, the "ROUND" function is used to round numeric values to a specified number of decimal places. It is particularly useful when you want to control the precision of numeric values in your query results. The "ROUND" function can round values both up and down based on a set of rules.
+
+### Syntax of the ROUND Function
+
+The syntax of the "ROUND" function typically follows this format:
+
+```sql
+ROUND(numeric_expression, decimal_places)
+```
+
+- `numeric_expression`: The numeric value you want to round.
+- `decimal_places`: The number of decimal places to which you want to round the value.
+
+### Using the ROUND Function
+
+Here's an example of using the "ROUND" function to round a numeric value to two decimal places:
+
+```sql
+SELECT ROUND(3.4567, 2) AS rounded_value;
+```
+
+In this query, the "ROUND" function rounds the value `3.4567` to two decimal places, resulting in `3.46`.
+
+### Benefits of the ROUND Function
+
+- **Precision Control**: It allows you to control the precision of numeric values, making them more suitable for presentation or specific calculations.
+- **Consistent Formatting**: The "ROUND" function helps ensure that numbers in your result set have consistent formatting, which can be important for financial or statistical data.
+- **Improved Readability**: Rounded values are often easier to read and understand than long, unrounded decimal numbers.
+
+### Rounding Rules
+
+The "ROUND" function follows standard rounding rules:
+
+- If the digit immediately to the right of the specified decimal places is 5 or greater, the value is rounded up.
+- If the digit immediately to the right of the specified decimal places is less than 5, the value is rounded down.
+
+For example:
+
+- `ROUND(3.678, 1)` rounds to `3.7` because the digit immediately to the right (8) is 5 or greater.
+- `ROUND(3.123, 1)` rounds to `3.1` because the digit immediately to the right (2) is less than 5.
+
+### Example Use Cases for Rounding
+
+#### 1\. Financial Calculations
+
+Suppose you have a table of financial transactions with various decimal values, and you want to round the transaction amounts to two decimal places for financial reporting:
+
+```sql
+SELECT transaction_id, ROUND(amount, 2) AS rounded_amount
+FROM financial_transactions;
+```
+
+In this query, the "ROUND" function is used to round the "amount" column to two decimal places for reporting purposes.
+
+#### 2\. Grade Calculation
+
+To calculate the average grade for a set of student scores and round it to the nearest whole number:
+
+```sql
+SELECT student_id, ROUND(AVG(score)) AS average_grade
+FROM student_scores
+GROUP BY student_id;
+```
+
+Here, the "ROUND" function is applied to the average score to round it to the nearest whole number.
+
+The "ROUND" function is a valuable tool for controlling the precision of numeric values in SQL queries, making results more readable and suitable for various applications.
