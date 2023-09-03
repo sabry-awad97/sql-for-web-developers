@@ -232,3 +232,46 @@ Auto Increment is commonly used in scenarios where unique identifiers are needed
 ### Note
 
 While auto incrementing values are typically numeric, some databases offer similar features for other data types like UUIDs (Universally Unique Identifiers) for globally unique identifiers.
+
+## SQL Injection
+
+### What Is SQL Injection?
+
+**SQL Injection** is a type of cyberattack that occurs when an attacker injects malicious SQL code into an application's input fields or parameters, with the intention of manipulating or accessing a database. SQL Injection attacks can lead to unauthorized access, data theft, or data manipulation.
+
+## How SQL Injection Works
+
+1. **Input Fields**: Many web applications take user input through forms or URL parameters, which are used to construct SQL queries to the database.
+2. **Malicious Input**: An attacker enters malicious input that includes SQL code into the input fields. For example, an attacker might input `' OR 1=1; --` into a username or password field.
+3. **Vulnerable Query**: If the application doesn't properly validate or sanitize user input, the attacker's input might be directly included in an SQL query constructed by the application.
+4. **Unauthorized Access**: The injected SQL code can alter the query's logic, potentially bypassing authentication, accessing sensitive data, or even modifying the database.
+
+## Example of SQL Injection
+
+Consider a login form where a user enters a username and password. If the application is vulnerable to SQL Injection and doesn't validate inputs correctly, an attacker might input the following:
+
+```sql
+' OR 1=1; --
+```
+
+If the application's query isn't properly protected, it might construct a query like this:
+
+```sql
+SELECT * FROM users WHERE username = '' OR 1=1; --' AND password = 'password';
+```
+
+This modified query always evaluates to true (`1=1`), effectively bypassing the login check and allowing the attacker to log in without a valid password.
+
+## Preventing SQL Injection
+
+To prevent SQL Injection, it's essential to follow secure coding practices:
+
+1. **Parameterized Statements**: Use parameterized queries or prepared statements provided by database libraries. These methods automatically handle input sanitization.
+2. **Input Validation**: Validate and sanitize user input. Only accept expected values and reject or sanitize any input that doesn't conform.
+3. **Least Privilege**: Ensure that database accounts used by your application have the least privilege necessary to perform their tasks.
+4. **Error Handling**: Implement proper error handling to avoid exposing sensitive information in error messages.
+5. **Web Application Firewall (WAF)**: Consider using a WAF to filter and block potentially harmful requests.
+
+## Importance of SQL Injection Prevention
+
+Preventing SQL Injection is crucial because it helps protect the confidentiality, integrity, and availability of your data. Failing to secure your application against SQL Injection can lead to data breaches and other security incidents.
