@@ -238,3 +238,54 @@ WHERE price BETWEEN 50 AND 100;
 ```
 
 In this example, the "BETWEEN" operator filters products with prices falling within the specified range.
+
+## The DISTINCT Keyword in SQL
+
+### What Is the DISTINCT Keyword?
+
+The "DISTINCT" keyword in SQL is used to filter duplicate rows from the result set of a query. It ensures that only unique values are returned for a specific column or combination of columns. The "DISTINCT" keyword is particularly useful when you want to retrieve a list of unique values from a column in a database table.
+
+### Syntax of the DISTINCT Keyword
+
+The "DISTINCT" keyword is typically used in the "SELECT" statement and follows this format:
+
+```sql
+SELECT DISTINCT column1, column2, ...
+FROM table_name;
+```
+
+- `column1, column2, ...`: The columns for which you want to retrieve unique values.
+- `table_name`: The name of the table from which you are retrieving data.
+
+### Using the DISTINCT Keyword
+
+Here's an example of using the "DISTINCT" keyword to retrieve a list of unique customer names from a "customers" table:
+
+```sql
+SELECT DISTINCT customer_name
+FROM customers;
+```
+
+In this query, the "DISTINCT" keyword ensures that only unique customer names are returned in the result set, eliminating duplicates.
+
+### Benefits of the DISTINCT Keyword
+
+- **De-Duplication**: It helps remove duplicate rows from query results, providing a clean list of unique values.
+- **Data Exploration**: When you need to explore the distinct values within a specific column, the "DISTINCT" keyword simplifies the process.
+- **Aggregate Calculations**: It is useful when you want to perform aggregate calculations (e.g., counting unique values) on a specific column.
+
+### Limitations of the DISTINCT Keyword
+
+- The "DISTINCT" keyword considers all selected columns when evaluating uniqueness. If you select multiple columns, it ensures that combinations of values are unique.
+- It may impact query performance when used on large datasets because it requires the database to perform additional sorting and elimination of duplicates.
+
+## Example Use Case for DISTINCT Keyword
+
+Suppose you have a table of orders with customer names, and you want to retrieve a list of unique customer names:
+
+```sql
+SELECT DISTINCT customer_name
+FROM orders;
+```
+
+In this example, the "DISTINCT" keyword ensures that each customer name is listed only once in the result set.
