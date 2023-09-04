@@ -140,7 +140,7 @@ Use One-to-Many relationships when:
 
 Certainly! Let's explore the concept of a "Many-to-Many" (N:M) relationship in the context of table relationships in relational databases.
 
-## Many-to-Many Relationship in Relational Databases
+## Many-to-Many Relationship
 
 ### Understanding the Many-to-Many Relationship
 
@@ -181,3 +181,59 @@ Use Many-to-Many relationships when:
 - Multiple entities can be related to multiple other entities.
 - You need to represent complex and flexible relationships.
 - Data normalization, data integrity, and efficiency are priorities in your database design.
+
+Certainly! Let's explore the concept of a unique constraint across two fields in a relational database.
+
+## Unique Constraint Across Two Fields
+
+### Understanding Unique Constraints
+
+In a relational database, a unique constraint ensures that the values in one or more columns of a table are unique across all the rows in that table. This means that no two rows can have the same value(s) in the specified column(s). While a unique constraint is often applied to a single field (column) to enforce uniqueness within that field, there are scenarios where you might want to enforce uniqueness across two or more fields simultaneously. This is where a unique constraint across two fields becomes important.
+
+A unique constraint across two fields, also known as a composite unique constraint or a unique constraint on multiple columns, enforces uniqueness by considering combinations of values from two or more columns. In other words, it ensures that no two rows in a table have the same combination of values in the specified columns.
+
+### Example use case to illustrate the need for a unique constraint across two fields
+
+Suppose you have a database for a library. In your database, you have a "Books" table where you store information about books. You want to ensure that no two books with the same title and author can be added to the database. To achieve this, you can apply a unique constraint across two fields: "Title" and "Author."
+
+With this unique constraint in place, the database will reject any attempt to insert a new book with the same title and author as an existing book. This ensures that the combination of title and author remains unique within the table.
+
+### Benefits of Unique Constraints Across Two Fields
+
+1. **Data Integrity**: By enforcing uniqueness across two fields, you maintain data integrity and prevent duplicates in a more specific manner.
+2. **Complex Requirements**: It allows you to address complex requirements where uniqueness depends on combinations of values from multiple columns.
+3. **Database Normalization**: It supports the principles of database normalization by reducing data redundancy.
+
+### Implementing a Unique Constraint Across Two Fields
+
+To implement a unique constraint across two fields:
+
+1. When creating or altering a table, specify the unique constraint on the combination of fields by using the `UNIQUE` keyword followed by the column names in parentheses.
+
+   Example SQL statement:
+
+   ```sql
+   CREATE TABLE Books (
+       BookID INT PRIMARY KEY,
+       Title VARCHAR(255),
+       Author VARCHAR(255),
+       UNIQUE (Title, Author)
+   );
+   ```
+
+2. If you're altering an existing table, use the `ALTER TABLE` statement to add the unique constraint.
+
+   Example SQL statement:
+
+   ```sql
+   ALTER TABLE Books
+   ADD CONSTRAINT UQ_Book_Title_Author UNIQUE (Title, Author);
+   ```
+
+### When to Use a Unique Constraint Across Two Fields
+
+Use a unique constraint across two fields when:
+
+- You need to enforce uniqueness based on combinations of values from multiple columns.
+- Your data model requires specific combinations of values to be unique.
+- Data integrity and preventing duplicates are essential.
