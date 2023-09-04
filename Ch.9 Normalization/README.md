@@ -376,3 +376,54 @@ Apply Second Normal Form (2NF) to a database table when:
 - The table meets the requirements of First Normal Form (1NF).
 - Data anomalies, such as partial dependencies, need to be eliminated.
 - Non-key columns should be fully functionally dependent on the entire primary key.
+
+Certainly! Let's explore the concept of the "Third Normal Form" (3NF) in the context of database normalization.
+
+## Understanding Third Normal Form (3NF)
+
+Third Normal Form (3NF) is the third step in the process of database normalization, following First Normal Form (1NF) and Second Normal Form (2NF). The primary goal of 3NF is to eliminate transitive dependencies within a relational database, thereby reducing data redundancy and ensuring data integrity.
+
+### Key Characteristics of Third Normal Form (3NF)
+
+Here are the key characteristics and rules that define Third Normal Form (3NF):
+
+1. **Meet the Requirements of 2NF**: Before a table can achieve 3NF, it must first meet the requirements of Second Normal Form (2NF). This includes having a primary key and ensuring that non-key columns are fully functionally dependent on the entire primary key.
+2. **No Transitive Dependencies**: In a 3NF table, there should be no transitive dependencies between non-key columns. A transitive dependency occurs when a non-key column depends on another non-key column, which, in turn, depends on the primary key.
+
+### Achieving Third Normal Form (3NF)
+
+To achieve Third Normal Form (3NF), follow these steps:
+
+1. Ensure the table is in Second Normal Form (2NF).
+2. Identify any transitive dependencies among non-key columns.
+3. Create separate tables to represent related data and remove transitive dependencies.
+
+### Example to Illustrate 3NF
+
+Let's consider an example to understand the concept of 3NF:
+
+Suppose you have a table called "StudentCourses" that stores information about students and the courses they are enrolled in. The table has the following columns: StudentID (the primary key), StudentName, CourseID, CourseName, and Instructor.
+
+| StudentID | StudentName | CourseID | CourseName  | Instructor |
+| --------- | ----------- | -------- | ----------- | ---------- |
+| 1         | John        | 101      | Math 101    | Mr. Smith  |
+| 2         | Jane        | 102      | History 101 | Mrs. Davis |
+| 3         | Alice       | 101      | Math 101    | Mr. Smith  |
+
+In this table, there is a transitive dependency between CourseName and Instructor. CourseName depends on CourseID, and Instructor depends on CourseID as well. To achieve 3NF, you can create two separate tables: "Courses" and "Instructors." The "Courses" table will contain CourseID and CourseName, while the "Instructors" table will contain CourseID and Instructor.
+
+This separation removes the transitive dependency, and each non-key column is fully functionally dependent on the primary key within its respective table.
+
+### Benefits of Third Normal Form (3NF)
+
+1. **Data Integrity**: 3NF reduces the risk of data anomalies by eliminating transitive dependencies, ensuring data accuracy and integrity.
+2. **Efficient Querying**: Queries on 3NF tables are more efficient and easier to write due to the well-structured data.
+3. **Simplified Maintenance**: Data maintenance tasks, such as updates and inserts, become simpler and less error-prone.
+
+### When to Apply Third Normal Form (3NF)
+
+Apply Third Normal Form (3NF) to a database table when:
+
+- The table meets the requirements of Second Normal Form (2NF).
+- Data anomalies, particularly transitive dependencies, need to be eliminated.
+- You want to ensure that non-key columns are only dependent on the primary key.
