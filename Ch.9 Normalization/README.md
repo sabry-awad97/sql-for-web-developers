@@ -320,8 +320,6 @@ This new structure adheres to 1NF because it contains atomic values in each colu
 - Columns contain non-atomic (composite) values.
 - You want to ensure data accuracy and simplify data querying.
 
-Of course! Let's dive into the concept of the "Second Normal Form" (2NF) in the context of database normalization.
-
 ## Understanding Second Normal Form (2NF)
 
 Second Normal Form (2NF) is the second step in the process of database normalization. It builds upon the concepts of the First Normal Form (1NF) and adds additional rules to further structure and organize data in a relational database. The primary goal of 2NF is to ensure that each non-key column in a table is fully functionally dependent on the entire primary key.
@@ -377,8 +375,6 @@ Apply Second Normal Form (2NF) to a database table when:
 - Data anomalies, such as partial dependencies, need to be eliminated.
 - Non-key columns should be fully functionally dependent on the entire primary key.
 
-Certainly! Let's explore the concept of the "Third Normal Form" (3NF) in the context of database normalization.
-
 ## Understanding Third Normal Form (3NF)
 
 Third Normal Form (3NF) is the third step in the process of database normalization, following First Normal Form (1NF) and Second Normal Form (2NF). The primary goal of 3NF is to eliminate transitive dependencies within a relational database, thereby reducing data redundancy and ensuring data integrity.
@@ -427,3 +423,53 @@ Apply Third Normal Form (3NF) to a database table when:
 - The table meets the requirements of Second Normal Form (2NF).
 - Data anomalies, particularly transitive dependencies, need to be eliminated.
 - You want to ensure that non-key columns are only dependent on the primary key.
+
+## Understanding Boyce-Codd Normal Form (BCNF)
+
+Boyce-Codd Normal Form (BCNF) is an advanced stage of database normalization that builds upon the principles of the First Normal Form (1NF), Second Normal Form (2NF), and Third Normal Form (3NF). BCNF is designed to address more complex cases of data organization and dependency within a relational database.
+
+### Key Characteristics of Boyce-Codd Normal Form (BCNF)
+
+Here are the key characteristics and rules that define Boyce-Codd Normal Form (BCNF):
+
+1. **Meet the Requirements of 3NF**: Before a table can achieve BCNF, it must first meet the requirements of Third Normal Form (3NF). This includes having a primary key and ensuring that non-key columns are fully functionally dependent on the entire primary key, with no transitive dependencies.
+2. **No Partial Dependencies**: In BCNF, there should be no partial dependencies. A partial dependency occurs when a non-key column depends on only a part of the primary key.
+3. **Functional Dependency on Superkeys**: Each non-key column must be functionally dependent on the superkey of the table. A superkey is a set of one or more columns that can be used to uniquely identify rows in the table.
+
+### Achieving Boyce-Codd Normal Form (BCNF)
+
+To achieve Boyce-Codd Normal Form (BCNF), follow these steps:
+
+1. Ensure the table is in Third Normal Form (3NF).
+2. Identify and eliminate any partial dependencies or other violations of BCNF.
+3. Create separate tables if needed to represent data without violating BCNF.
+
+### Example to Illustrate BCNF
+
+Let's consider an example to understand the concept of BCNF:
+
+Suppose you have a table called "Orders" that stores information about customer orders. The table has the following columns: OrderID (the primary key), CustomerID, ProductID, ProductName, and Quantity.
+
+| OrderID | CustomerID | ProductID | ProductName | Quantity |
+| ------- | ---------- | --------- | ----------- | -------- |
+| 1       | 1001       | 101       | Laptop      | 2        |
+| 2       | 1002       | 102       | Monitor     | 3        |
+| 3       | 1001       | 101       | Laptop      | 1        |
+
+In this table, there is a partial dependency between ProductName and ProductID. ProductName depends on ProductID, which is not part of the primary key. To achieve BCNF, you can create two separate tables: "Products" and "OrderDetails."
+
+The "Products" table will contain ProductID and ProductName, while the "OrderDetails" table will include OrderID, ProductID, and Quantity. This separation ensures that each non-key column is functionally dependent on the superkey of its respective table, meeting the BCNF requirements.
+
+### Benefits of Boyce-Codd Normal Form (BCNF)
+
+1. **Data Integrity**: BCNF ensures a high level of data integrity by eliminating partial dependencies and other anomalies.
+2. **Efficient Querying**: Well-structured BCNF tables lead to more efficient queries and data retrieval.
+3. **Improved Maintainability**: Data maintenance tasks become simpler and less error-prone with BCNF-compliant tables.
+
+### When to Apply Boyce-Codd Normal Form (BCNF)
+
+Apply Boyce-Codd Normal Form (BCNF) to a database table when:
+
+- The table meets the requirements of Third Normal Form (3NF).
+- Complex dependencies, including partial dependencies, need to be eliminated.
+- You want to ensure that non-key columns are functionally dependent on the superkey.
