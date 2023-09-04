@@ -237,3 +237,38 @@ Use a unique constraint across two fields when:
 - You need to enforce uniqueness based on combinations of values from multiple columns.
 - Your data model requires specific combinations of values to be unique.
 - Data integrity and preventing duplicates are essential.
+
+## Database Normalization
+
+### Understanding Database Normalization
+
+Database normalization is a process in relational database design that aims to organize and structure data efficiently while reducing data redundancy and ensuring data integrity. The goal of normalization is to minimize data anomalies, improve data consistency, and make it easier to maintain and query the database.
+
+### The Need for Database Normalization
+
+In the early stages of database design, data is often stored in a single table. While this approach is simple, it can lead to several issues, including:
+
+1. **Data Redundancy**: The same data is stored in multiple places, increasing storage space and the risk of inconsistencies.
+2. **Data Anomalies**: Data anomalies, such as insertion, update, and deletion anomalies, can occur when data is not properly organized.
+3. **Difficulty in Querying**: Complex queries become harder to write and slower to execute when data is not organized efficiently.
+
+### The Normalization Process
+
+Normalization involves breaking down a large, complex table into smaller, related tables and defining relationships between them. This is achieved through a series of normal forms, each addressing specific aspects of data organization. The most commonly used normal forms are:
+
+1. **First Normal Form (1NF)**: Ensures that each column contains atomic (indivisible) values and that there are no repeating groups or arrays.
+2. **Second Normal Form (2NF)**: Builds on 1NF and ensures that each non-key column is fully functionally dependent on the entire primary key.
+3. **Third Normal Form (3NF)**: Builds on 2NF and eliminates transitive dependencies, ensuring that non-key columns depend only on the primary key.
+4. **Boyce-Codd Normal Form (BCNF)**: A stricter form of 3NF that addresses additional complexities in certain cases.
+5. **Fourth Normal Form (4NF)** and Fifth Normal Form (5NF)\*\*: Address multi-valued and join dependencies, respectively, in more complex data models.
+
+### Benefits of Database Normalization
+
+1. **Reduced Data Redundancy**: Normalization eliminates duplicate data, leading to more efficient storage and reduced chances of data inconsistencies.
+2. **Improved Data Integrity**: With well-defined relationships and reduced redundancy, data integrity is enhanced.
+3. **Easier Maintenance**: Updating, inserting, and deleting records become simpler and less error-prone.
+4. **Faster Querying**: Normalized databases often perform better when executing complex queries due to the well-structured data.
+
+### When to Normalize a Database
+
+Normalization is not always necessary for every database. The level of normalization depends on the specific requirements of the application and the trade-offs between data integrity and query performance. Denormalization, which involves reintroducing some redundancy for performance reasons, is also a valid strategy when needed.
