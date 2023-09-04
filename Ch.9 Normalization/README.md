@@ -95,3 +95,45 @@ Use One-to-One relationships when:
 - You need to separate sensitive or rarely accessed data from the main table.
 - You want to enforce strict data integrity between two entities.
 - Your database design benefits from reducing data redundancy.
+
+## One-to-Many Relationship
+
+### Understanding the One-to-Many Relationship
+
+In a relational database, a "One-to-Many" (1:N) relationship is a type of table relationship where each record in the first table can be related to one or more records in the second table, but each record in the second table is related to only one record in the first table. This type of relationship is one of the most common and fundamental in relational database design.
+
+### Characteristics of a One-to-Many Relationship
+
+Here are some key characteristics of a One-to-Many relationship:
+
+1. **Multiplicity**: Each record in the "one" side table can be associated with multiple records in the "many" side table, but each record in the "many" side table is associated with only one record in the "one" side table.
+2. **Foreign Key**: To establish a One-to-Many relationship, the "many" side table typically includes a foreign key that references the primary key of the "one" side table. This foreign key is used to create and maintain the relationship.
+3. **Common Use Case**: One-to-Many relationships are commonly used to represent scenarios where one entity is associated with multiple related entities. For example, a "Customer" table may be related to multiple "Order" records.
+
+### Example use case to illustrate a One-to-Many relationship
+
+Suppose you have a database for a library. You might have a "Library" table that stores information about different libraries, including their names and locations. Now, you also want to keep track of the books available in each library.
+
+In this scenario, you can create a "Book" table that includes a foreign key, such as "LibraryID," which references the primary key of the "Library" table. Each record in the "Book" table is associated with a specific library (the "one" side), but each library can have multiple books (the "many" side). This One-to-Many relationship allows you to manage the books available in each library efficiently.
+
+### Benefits of One-to-Many Relationships
+
+1. **Efficiency**: One-to-Many relationships enable efficient data retrieval and querying. For example, you can easily retrieve all books belonging to a specific library using SQL JOIN operations.
+2. **Data Organization**: They help organize data logically by representing relationships between entities. This makes the database design more intuitive and maintainable.
+3. **Data Integrity**: By using foreign keys, One-to-Many relationships enforce data integrity, ensuring that each related record has a valid counterpart.
+
+### Implementing One-to-Many Relationships
+
+To implement a One-to-Many relationship:
+
+- Create two tables, one for each entity involved in the relationship (e.g., "Library" and "Book").
+- In the "many" side table (e.g., "Book"), include a foreign key column (e.g., "LibraryID") that references the primary key of the "one" side table (e.g., "Library").
+- Use SQL JOIN operations to retrieve related data as needed.
+
+### When to Use One-to-Many Relationships
+
+Use One-to-Many relationships when:
+
+- One entity can be associated with multiple related entities.
+- You want to efficiently query and retrieve related data.
+- Data integrity and organization are important aspects of your database design.
